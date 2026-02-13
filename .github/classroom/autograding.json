@@ -1,0 +1,54 @@
+{
+  "tests": [
+    {
+      "name": "Data Processing - Structure & Correctness",
+      "setup": "pip install -q -r requirements.txt",
+      "run": "python -m pytest tests/test_submission.py::TestDataProcessing -v",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "ElasticNet Regression - Grid Search & Performance",
+      "setup": "",
+      "run": "python -m pytest tests/test_submission.py::TestRegression -v",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 30,
+      "points": 30
+    },
+    {
+      "name": "Logistic Regression - Grid Search & Model Quality",
+      "setup": "",
+      "run": "python -m pytest tests/test_submission.py::TestClassification::test_logistic_regression_grid_has_best_estimator tests/test_submission.py::TestClassification::test_best_logistic_regression_achieves_good_auc -v",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 30,
+      "points": 15
+    },
+    {
+      "name": "k-NN Classification - Grid Search & Model Quality",
+      "setup": "",
+      "run": "python -m pytest tests/test_submission.py::TestClassification::test_knn_grid_has_best_k tests/test_submission.py::TestClassification::test_best_knn_achieves_good_auc -v",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 30,
+      "points": 15
+    },
+    {
+      "name": "Evaluation Metrics & Curves - Correctness & Quality",
+      "setup": "",
+      "run": "python -m pytest tests/test_submission.py::TestEvaluation -v",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 30,
+      "points": 30
+    }
+  ]
+}
