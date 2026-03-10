@@ -24,29 +24,29 @@ Do NOT:
 
 **Did you use any AI tools to help with this assignment?**
 
-_____ Yes     _____ No
+__✅___ Yes     _____ No
 
 **If yes, please tell us:**
 
 1. **What tools did you use?** (e.g., ChatGPT, Claude, GitHub Copilot)
    
-   _________________________________________________________________
+   ___Copilot______________________________________________________________
 
 2. **What specific things did you ask them to do?** (Be specific)
    
-   _________________________________________________________________
+   I asked it to help me setup my environment, then I asked it a number of silly questions about how to fix the code I was writing.
    
    _________________________________________________________________
 
 3. **How much of your final code came from AI vs. your own work?** (e.g., "AI gave me the formula, I wrote the loop" or "AI helped me debug an error")
    
-   _________________________________________________________________
+   ___Most debugging was AI, and autocode gave me a lot of ideas. Lots of code came from class lab code or the SKLEARN_REFERENCE.md that I adapted as well.
    
    _________________________________________________________________
 
 4. **Can you explain your code?** (Can you walk through what each function does and why you wrote it that way?)
    
-   _____ Yes, I can explain it well
+   __✅___ Yes, I can explain it well
    
    _____ Mostly, but I have some questions
    
