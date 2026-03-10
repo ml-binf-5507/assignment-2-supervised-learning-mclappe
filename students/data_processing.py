@@ -130,8 +130,6 @@ def prepare_classification_data(df, target='num'):
     # - Exclude target from features
     # - Exclude chol from features
     # - Return X (features) and y (target)
-    if target not in df.columns:
-        raise ValueError(f"Target column '{target}' not found in DataFrame")
 
     df = df.dropna(subset=[target])
 
@@ -146,7 +144,7 @@ def prepare_classification_data(df, target='num'):
     return X, y
 
 
-def split_and_scale(X, y, test_size=0.2, random_state=42, stratify=None):
+def split_and_scale(X, y, test_size=0.2, random_state=42):
     """
     Split data into train/test sets and scale features.
     
@@ -169,7 +167,7 @@ def split_and_scale(X, y, test_size=0.2, random_state=42, stratify=None):
     """
 
     X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=test_size, random_state=random_state, stratify=stratify
+        X, y, test_size=test_size, random_state=random_state
     )
 
     scaler = StandardScaler()
