@@ -42,7 +42,11 @@ def train_logistic_regression_grid(X_train, y_train, param_grid=None):
     # - Use GridSearchCV with cv=5
     # - Fit on training data
     # - Return fitted GridSearchCV object
-    pass
+
+    log_reg = LogisticRegression(max_iter=1000)
+    grid_search = GridSearchCV(log_reg, param_grid, cv=5)
+    grid_search.fit(X_train, y_train)
+    return grid_search
 
 
 def train_knn_grid(X_train, y_train, param_grid=None):
