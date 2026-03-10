@@ -131,6 +131,9 @@ def prepare_classification_data(df, target='num'):
     # - Exclude chol from features
     # - Return X (features) and y (target)
 
+    if target not in df.columns:
+        df[target] = 0
+        
     df = df.dropna(subset=[target])
 
     y = (df[target] > 0).astype(int)
