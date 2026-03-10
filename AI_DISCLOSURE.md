@@ -40,7 +40,7 @@ __✅___ Yes     _____ No
 
 3. **How much of your final code came from AI vs. your own work?** (e.g., "AI gave me the formula, I wrote the loop" or "AI helped me debug an error")
    
-   ___Most debugging was AI, and autocode gave me a lot of ideas. Lots of code came from class lab code or the SKLEARN_REFERENCE.md and PANDAS_CHEATSHEET.md that I adapted as well.
+   ___Most debugging was AI, and autofill code gave me ideas. Lots of code came from class lab code or the SKLEARN_REFERENCE.md and PANDAS_CHEATSHEET.md that I adapted as well.
    
    _________________________________________________________________
 

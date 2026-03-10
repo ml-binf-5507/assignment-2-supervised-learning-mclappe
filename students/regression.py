@@ -76,7 +76,17 @@ def create_r2_heatmap(results_df, l1_ratios, alphas, output_path=None):
     # - Add colorbar
     # - Save to output_path if provided
     # - Return figure object
-    pass
+
+    pivot_df = results_df.pivot(index='alpha', columns='l1_ratio', values='r2_score')
+    plt.figure(figsize=(10, 6))
+    sns.heatmap(pivot_df, annot=True, fmt=".3f", cmap='viridis', cbar_kws={'label': 'R² Score'})
+    plt.xlabel('L1 Ratio')
+    plt.ylabel('Alpha')
+
+    if output_path:
+        plt.savefig(output_path)
+        plt.close()
+    return plt.gcf()
 
 
 def get_best_elasticnet_model(X_train, y_train, X_test, y_test, 
@@ -109,14 +119,41 @@ def get_best_elasticnet_model(X_train, y_train, X_test, y_test,
         - 'train_r2': R² on training data
         - 'test_r2': R² on test data
         - 'results_df': full results DataFrame
-    """
+    """    
+    # TODO: Implement best model selection
+    # - Train models using train_elasticnet_grid
+    # - Select model with highest test R² (not training R²)
+    # - Return dictionary with best model and parameters
+
     if l1_ratios is None:
         l1_ratios = [0.1, 0.3, 0.5, 0.7, 0.9]
     if alphas is None:
         alphas = [0.001, 0.01, 0.1, 1.0, 10.0]
     
-    # TODO: Implement best model selection
-    # - Train models using train_elasticnet_grid
-    # - Select model with highest test R² (not training R²)
-    # - Return dictionary with best model and parameters
-    pass
+    results_df = train_elasticnet_grid(X_train, y_train, l1_ratios, alphas)
+    
+    testingr2 = []
+    for _, row in results_df.iterrows():
+        model = row["model"]
+        test_r2 = r2_score(y_test, model.predict(X_test))
+        testingr2.append(test_r2)
+
+    results_df["test_r2"] = testingr2
+
+    best_i = results_df["test_r2"].idxmax()
+    best_row = results_df.loc[best_i]
+
+    best_model = best_row["model"]
+    best_l1 = best_row["l1_ratio"]
+    best_alpha = best_row["alpha"]
+    best_train_r2 = best_row["r2_score"]
+    best_test_r2 = best_row["test_r2"]
+
+    return {
+        "model": best_model,
+        "best_l1_ratio": best_l1,
+        "best_alpha": best_alpha,
+        "train_r2": best_train_r2,
+        "test_r2": best_test_r2,
+        "results_df": results_df
+    }
