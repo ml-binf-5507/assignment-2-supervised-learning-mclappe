@@ -120,16 +120,16 @@ def get_best_elasticnet_model(X_train, y_train, X_test, y_test,
         - 'test_r2': R² on test data
         - 'results_df': full results DataFrame
     """    
-    # TODO: Implement best model selection
-    # - Train models using train_elasticnet_grid
-    # - Select model with highest test R² (not training R²)
-    # - Return dictionary with best model and parameters
-
     if l1_ratios is None:
         l1_ratios = [0.1, 0.3, 0.5, 0.7, 0.9]
     if alphas is None:
         alphas = [0.001, 0.01, 0.1, 1.0, 10.0]
     
+    # TODO: Implement best model selection
+    # - Train models using train_elasticnet_grid
+    # - Select model with highest test R² (not training R²)
+    # - Return dictionary with best model and parameters
+
     results_df = train_elasticnet_grid(X_train, y_train, l1_ratios, alphas)
     
     testingr2 = []
