@@ -199,6 +199,7 @@ pytest tests/ -v
 # Run specific test class
 pytest tests/test_submission.py::TestDataProcessing -v
 #pytest tests/test_submission.py::TestRegression -v
+#pytest tests/test_submission.py::TestClassification -v
 
 # Run specific test
 pytest tests/test_submission.py::TestRegression::test_elasticnet_grid_returns_dataframe -v

@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import (
-    roc_curve, auc, precision_recall_curve, average_precision_score,
+    precision_score, recall_score, roc_curve, auc, precision_recall_curve, average_precision_score,
     roc_auc_score, auc as compute_auc, r2_score
 )
 
@@ -29,7 +29,8 @@ def calculate_r2_score(y_true, y_pred):
     """
     # TODO: Implement R² calculation
     # Use sklearn's r2_score
-    pass
+
+    return r2_score(y_true, y_pred)
 
 
 def calculate_classification_metrics(y_true, y_pred):
@@ -52,7 +53,18 @@ def calculate_classification_metrics(y_true, y_pred):
     
     # TODO: Implement metrics calculation
     # Return dictionary with all four metrics
-    pass
+
+    accuracy = accuracy_score(y_true, y_pred)
+    precision = precision_score(y_true, y_pred)
+    recall = recall_score(y_true, y_pred)
+    f1 = f1_score(y_true, y_pred)
+
+    return {
+        'accuracy': accuracy,
+        'precision': precision,
+        'recall': recall,
+        'f1': f1
+    }
 
 
 def calculate_auroc_score(y_true, y_pred_proba):
@@ -73,7 +85,7 @@ def calculate_auroc_score(y_true, y_pred_proba):
     """
     # TODO: Implement AUROC calculation
     # Use sklearn's roc_auc_score
-    pass
+    return roc_auc_score(y_true, y_pred_proba)
 
 
 def calculate_auprc_score(y_true, y_pred_proba):
@@ -94,7 +106,7 @@ def calculate_auprc_score(y_true, y_pred_proba):
     """
     # TODO: Implement AUPRC calculation
     # Use sklearn's average_precision_score
-    pass
+    return average_precision_score(y_true, y_pred_proba)
 
 
 def generate_auroc_curve(y_true, y_pred_proba, model_name="Model", 
