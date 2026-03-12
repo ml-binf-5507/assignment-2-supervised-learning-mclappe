@@ -267,29 +267,24 @@ def plot_comparison_curves(y_true, y_pred_proba_log, y_pred_proba_knn,
         y_true, 
         y_pred_proba_log, 
         model_name="Logistic Regression",
-        ax=axes[0]
-    )
+        ax=axes[0])
     generate_auroc_curve(
         y_true, 
         y_pred_proba_knn, 
         model_name="k-NN",
-        ax=axes[0]
-    )
+        ax=axes[0])
     axes[0].set_title("ROC Curve Comparison")
 
-    # Right subplot: PR curves
     generate_auprc_curve(
         y_true, 
         y_pred_proba_log, 
         model_name="Logistic Regression",
-        ax=axes[1]
-    )
+        ax=axes[1])
     generate_auprc_curve(
         y_true, 
         y_pred_proba_knn, 
         model_name="k-NN",
-        ax=axes[1]
-    )
+        ax=axes[1])
     axes[1].set_title("Precision-Recall Curve Comparison")
 
     if output_path:
