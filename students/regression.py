@@ -79,7 +79,7 @@ def create_r2_heatmap(results_df, l1_ratios, alphas, output_path=None):
 
     pivot_df = results_df.pivot(index='alpha', columns='l1_ratio', values='r2_score')
     plt.figure(figsize=(10, 6))
-    sns.heatmap(pivot_df, annot=True, fmt=".3f", cmap='viridis', cbar_kws={'label': 'R² Score'})
+    sns.heatmap(pivot_df, annot=True, fmt=".2f", cmap='viridis', cbar_kws={'label': 'R² Score'})
     plt.xlabel('L1 Ratio')
     plt.ylabel('Alpha')
 
