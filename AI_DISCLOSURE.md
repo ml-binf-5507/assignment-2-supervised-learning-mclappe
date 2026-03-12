@@ -34,7 +34,7 @@ __✅___ Yes     _____ No
 
 2. **What specific things did you ask them to do?** (Be specific)
    
-   I asked it to help me setup my environment, then I asked it a number of silly questions about how to fix the code I was writing.
+   I asked it to help me setup my environment, then I asked it a number of silly questions about my almost right code.
    
    _________________________________________________________________
 
