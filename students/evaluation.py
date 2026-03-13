@@ -151,12 +151,12 @@ def generate_auroc_curve(y_true, y_pred_proba, model_name="Model",
     else:
         fig = ax.figure
 
-    ax.plot(fpr, tpr, label=f'ROC Curve (AUROC={auroc:.3f})')
+    ax.plot(fpr, tpr, label=f'ROC Curve ({model_name} AUROC={auroc:.3f})')
     ax.plot([0, 1], [0, 1], 'k--', label='Random Classifier')
 
     ax.set_xlabel('False Positive Rate')
     ax.set_ylabel('True Positive Rate')
-    ax.set_title('ROC Curve')
+    ax.set_title(f'ROC Curve ({model_name})')
     ax.legend()
     ax.grid(alpha=0.3)
 
@@ -208,7 +208,7 @@ def generate_auprc_curve(y_true, y_pred_proba, model_name="Model",
     else:
         fig = ax.figure
 
-    ax.plot(recall_vals, precision_vals, label=f'PR Curve (AUPRC={auprc:.3f})')
+    ax.plot(recall_vals, precision_vals, label=f'PR Curve ({model_name} AUPRC={auprc:.3f})')
 
     # Baseline = prevalence of positive class
     prevalence = np.mean(y_true)
@@ -216,7 +216,7 @@ def generate_auprc_curve(y_true, y_pred_proba, model_name="Model",
 
     ax.set_xlabel('Recall')
     ax.set_ylabel('Precision')
-    ax.set_title('Precision-Recall Curve')
+    ax.set_title(f'Precision-Recall Curve ({model_name})')
     ax.legend()
     ax.grid(alpha=0.3)
 
